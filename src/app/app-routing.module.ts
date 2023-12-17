@@ -4,6 +4,7 @@ import { LoginComponent } from './components/login/login.component';
 import { HomeComponent } from './components/home/home.component';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { NewsComponent } from './components/news/news.component';
+import { NewsResultsComponent } from './components/news-results/news-results.component';
 
 const routes: Routes = [
   {
@@ -23,8 +24,12 @@ const routes: Routes = [
     component: NewsComponent,
   },
   {
+    path: 'news-results',
+    component: NewsResultsComponent,
+  },
+  {
     path: '',
-    redirectTo: '/home',
+    redirectTo: '/login',
     pathMatch: 'full',
   },
 ];

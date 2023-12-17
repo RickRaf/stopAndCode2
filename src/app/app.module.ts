@@ -16,6 +16,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { ToolbarComponent } from './components/toolbar/toolbar.component';
 import { FormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
+import { NewsResultsComponent } from './components/news-results/news-results.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { MatInputModule } from '@angular/material/input';
     NewsComponent,
     LoginComponent,
     ToolbarComponent,
+    NewsResultsComponent,
   ],
   imports: [
     BrowserModule,

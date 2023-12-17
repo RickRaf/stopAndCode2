@@ -12,14 +12,8 @@ export class HomeComponent implements OnInit {
   constructor(private news: NewsService) {}
 
   ngOnInit(): void {
-    this.news.getDati().subscribe(
-      (data) => {
-        console.log(data);
-        this.articles = data.articles; // Assumendo che l'array di articoli sia contenuto nella proprietà 'articles'
-      },
-      (error) => {
-        console.error('Errore nella richiesta:', error);
-      }
-    );
+    this.news.getDati().subscribe((data) => {
+      this.news.setJsonData(data);
+    });
   }
 }

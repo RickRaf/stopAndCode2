@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
+import { NewsService } from 'src/app/services/news.service';
 
 @Component({
   selector: 'app-toolbar',
@@ -10,25 +11,29 @@ export class ToolbarComponent {
   showSearch = false;
   searchQuery = '';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private news: NewsService) {}
+
+  navigateToNews() {
+    this.router.navigate(['/news']);
+  }
+
   toggleSearch() {
     this.showSearch = !this.showSearch;
     if (!this.showSearch) {
-      this.searchQuery = ''; // Resetta la query quando la barra di ricerca è nascosta
+      this.searchQuery = '';
     }
   }
 
   performSearch() {
-    // Aggiungi la logica di ricerca qui, ad esempio navigare a una nuova pagina con i risultati
-    console.log('Ricerca eseguita:', this.searchQuery);
+    if (this.searchQuery) {
+      this.router.navigate(['/news-results'], {
+        queryParams: { q: this.searchQuery },
+      });
+    }
   }
 
   clearSearch() {
     this.searchQuery = '';
-  }
-
-  navigateToNews() {
-    this.router.navigate(['/news']);
   }
 
   navigateToHome() {
